@@ -113,7 +113,6 @@ server.route({
       const userId = request.params.userId;
       const { title, description, status, created_at, updated_at } = request.payload;
 
-      // Retrieve the image file from the request payload
       const imageFile = request.payload.image;
 
       if (!imageFile) {
@@ -121,14 +120,12 @@ server.route({
       }
 
       try {
-          // Create a reference to a new document in the user's posts subcollection
           const db = admin.firestore();
           const userRef = db.collection('users').doc(userId);
           const postRef = userRef.collection('posts').doc();
 
-          const id = postRef.id;  // Generated document ID
+          const id = postRef.id;  
 
-          // Upload the image to Firebase Storage
           const bucket = admin.storage().bucket();
           const fileName = `${userId}/posts/${id}-${Date.now()}-${imageFile.hapi.filename}`;
           const file = bucket.file(fileName);
