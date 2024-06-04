@@ -17,6 +17,7 @@
     "dotenv": "^16.4.5",
     "firebase": "^10.12.2",
     "firebase-admin": "^12.1.1",
-    "mysql2": "^3.10.0"
+    "mysql2": "^3.10.0",
+    "stream": "^0.0.2"
   }
 }
