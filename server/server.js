@@ -5,7 +5,7 @@ const stream = require('stream');
 const init = async () => {
   const server = Hapi.server({
     port: 3000,
-    host: "localhost",
+    host: '0.0.0.0',
     routes: {
       cors: {
         origin: ["*"],
@@ -91,7 +91,7 @@ const init = async () => {
 
             const userData = userDoc.data();
 
-            return h.response({ success: true, userId: userId, userData: userData }).code(200);
+            return h.response({ userId: userId, ...userData }).code(200);
         } catch (error) {
             return h.response({ error: error.message }).code(500);
         }
@@ -182,7 +182,7 @@ server.route({
               posts.push(doc.data());
           });
 
-          return h.response({ success: true, posts }).code(200);
+          return h.response({ posts }).code(200);
       } catch (error) {
           return h.response({ error: error.message }).code(500);
       }
@@ -204,7 +204,7 @@ server.route({
               posts.push({ userId, ...postData });
           });
 
-          return h.response({ success: true, posts }).code(200);
+          return h.response({ posts }).code(200);
       } catch (error) {
           return h.response({ error: error.message }).code(500);
       }
