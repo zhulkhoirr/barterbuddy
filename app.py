@@ -46,9 +46,20 @@ def recommend_posts_for_user(user_id, top_n=5):
 
     return recommended_posts[['id_post', 'title', 'description', 'type', 'city', 'username']]
 
-@app.route('/', methods=['GET']) #aku masih bingung ngambil idnya bagus darimana
+# @app.route('/', methods=['GET']) #aku masih bingung ngambil idnya bagus darimana
+@app.route('/', methods=['POST'])
 def recommend():
-    user_id = 1
+    # user_id = 1
+    data = request.get_json()
+    user_id = data.get('user_id')
+    if user_id is None:
+        return jsonify({"error": "user_id is required"}), 400
+
+    try:
+        user_id = int(user_id)
+    except ValueError:
+        return jsonify({"error": "user_id must be an integer"}), 400
+
     recommendations = recommend_posts_for_user(user_id, top_n=5)
     return jsonify(recommendations.to_dict(orient='records'))
 
