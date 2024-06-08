@@ -46,7 +46,7 @@ def recommend_posts_for_user(user_id, top_n=5):
 
     return recommended_posts[['id_post', 'title', 'description', 'type', 'city', 'username']]
 
-# @app.route('/', methods=['GET']) #aku masih bingung ngambil idnya bagus darimana
+# @app.route('/', methods=['GET']) #aku masih bingung ngambil idnya darimana
 @app.route('/', methods=['POST'])
 def recommend():
     # user_id = 1
