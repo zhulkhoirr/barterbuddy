@@ -10,6 +10,7 @@ const searchHandler = require("./handlers/searchHandler");
 const searchHistoryHandler = require("./handlers/searchHistoryHandler");
 const deleteSearchHistoryHandler = require("./handlers/deleteSearchHistoryHandler");
 const editPostHandler = require("./handlers/editPostHandler");
+const editProfileHandler = require("./handlers/editProfileHandler");
 
 const routes = [
   {
@@ -27,6 +28,19 @@ const routes = [
     method: "GET",
     path: "/user/{userId}",
     handler: getUserHandler,
+  },
+  {
+    method: "PUT",
+    path: "/{userId}/profile",
+    options: {
+      payload: {
+        output: "stream",
+        parse: true,
+        allow: "multipart/form-data",
+        multipart: true,
+      },
+    },
+    handler: editProfileHandler,
   },
 
   {

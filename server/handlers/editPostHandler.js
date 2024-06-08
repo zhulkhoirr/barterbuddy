@@ -1,6 +1,5 @@
 const admin = require("../firebase");
 const stream = require("stream");
-const Boom = require("@hapi/boom");
 
 const editPostHandler = async (request, h) => {
   const { userId, postId } = request.params;
@@ -8,11 +7,6 @@ const editPostHandler = async (request, h) => {
 
   const imageFile = request.payload.image;
 
-  if (imageFile.bytes > 1000000) {
-    throw Boom.badRequest(
-      "Payload content length greater than maximum allowed: 1000000"
-    );
-  }
   try {
     const db = admin.firestore();
     const postRef = db
