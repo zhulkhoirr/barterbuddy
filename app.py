@@ -46,9 +46,9 @@ def recommend_posts_for_user(user_id, top_n=5):
 
     return recommended_posts[['id_post', 'title', 'description', 'type', 'city', 'username']]
 
-@app.route('/', methods=['GET'])
+@app.route('/', methods=['GET']) #aku masih bingung ngambil idnya bagus darimana
 def recommend():
-    user_id = int(request.args.get('user_id'))
+    user_id = 1
     recommendations = recommend_posts_for_user(user_id, top_n=5)
     return jsonify(recommendations.to_dict(orient='records'))
 
