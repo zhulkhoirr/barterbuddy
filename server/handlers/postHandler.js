@@ -43,16 +43,16 @@ const postHandler = async (request, h) => {
 
     const imageUrl = `https://storage.googleapis.com/${bucket.name}/${fileName}`;
 
-    created_at = new Date().toISOString();
-    updated_at = new Date().toISOString();
+    let createdAt = new Date().toISOString();
+    let updatedAt = new Date().toISOString();
     await postRef.set({
       id,
       title,
       image: imageUrl,
       description,
       status,
-      created_at,
-      updated_at,
+      created_at: createdAt,
+      updated_at: updatedAt,
     });
 
     return h.response({ success: true, id }).code(201);

@@ -3,7 +3,7 @@ const stream = require("stream");
 
 const editPostHandler = async (request, h) => {
   const { userId, postId } = request.params;
-  const { title, description, status, updated_at } = request.payload;
+  const { title, description, status } = request.payload;
 
   const imageFile = request.payload.image;
 
@@ -63,13 +63,13 @@ const editPostHandler = async (request, h) => {
 
       imageUrl = `https://storage.googleapis.com/${bucket.name}/${newFileName}`;
     }
-    updated_at = new Date().toISOString();
+    let updatedAt = new Date().toISOString();
     await postRef.update({
       title,
       image: imageUrl,
       description,
       status,
-      updated_at,
+      updated_at: updatedAt,
     });
 
     return h.response({ success: true }).code(200);
