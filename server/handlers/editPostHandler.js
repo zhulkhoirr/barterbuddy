@@ -63,7 +63,7 @@ const editPostHandler = async (request, h) => {
 
       imageUrl = `https://storage.googleapis.com/${bucket.name}/${newFileName}`;
     }
-
+    let now = new Date();
     let datePart = now.toLocaleDateString('sv-SE'); 
     let timePart = now.toLocaleTimeString('en-GB', { hour12: false }); 
 
