@@ -3,8 +3,7 @@ const stream = require("stream");
 
 const postHandler = async (request, h) => {
   const userId = request.params.userId;
-  const { title, description, status, created_at, updated_at } =
-    request.payload;
+  const { title, description, status} = request.payload;
 
   const imageFile = request.payload.image;
 
@@ -43,8 +42,12 @@ const postHandler = async (request, h) => {
 
     const imageUrl = `https://storage.googleapis.com/${bucket.name}/${fileName}`;
 
-    let createdAt = new Date().toISOString();
-    let updatedAt = new Date().toISOString();
+    let now = new Date();
+    let datePart = now.toLocaleDateString('sv-SE'); 
+    let timePart = now.toLocaleTimeString('en-GB', { hour12: false }); 
+
+    let createdAt = `${datePart}T${timePart}`;
+    let updatedAt = `${datePart}T${timePart}`;
     await postRef.set({
       id,
       title,

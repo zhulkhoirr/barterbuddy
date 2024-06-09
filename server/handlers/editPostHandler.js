@@ -63,7 +63,11 @@ const editPostHandler = async (request, h) => {
 
       imageUrl = `https://storage.googleapis.com/${bucket.name}/${newFileName}`;
     }
-    let updatedAt = new Date().toISOString();
+
+    let datePart = now.toLocaleDateString('sv-SE'); 
+    let timePart = now.toLocaleTimeString('en-GB', { hour12: false }); 
+
+    let updatedAt = `${datePart}T${timePart}`;
     await postRef.update({
       title,
       image: imageUrl,
