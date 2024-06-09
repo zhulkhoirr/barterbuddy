@@ -1,5 +1,6 @@
 const admin = require("../firebase");
 const stream = require("stream");
+const moment = require('moment');
 
 const editPostHandler = async (request, h) => {
   const { userId, postId } = request.params;
@@ -63,11 +64,8 @@ const editPostHandler = async (request, h) => {
 
       imageUrl = `https://storage.googleapis.com/${bucket.name}/${newFileName}`;
     }
-    let now = new Date();
-    let datePart = now.toLocaleDateString('sv-SE'); 
-    let timePart = now.toLocaleTimeString('en-GB', { hour12: false }); 
-
-    let updatedAt = `${datePart}T${timePart}`;
+    let now = moment();
+    let updatedAt = now.format();
     await postRef.update({
       title,
       image: imageUrl,
