@@ -1,5 +1,9 @@
 const admin = require("../firebase");
 const stream = require("stream");
+
+const postHandler = async (request, h) => {
+  const userId = request.params.userId;
+  const { title, description, type, status } = request.payload;
 const moment = require('moment');
 
 const postHandler = async (request, h) => {
@@ -14,8 +18,8 @@ const postHandler = async (request, h) => {
 
   try {
     const db = admin.firestore();
-    const userRef = db.collection("users").doc(userId);
-    const postRef = userRef.collection("posts").doc();
+    // const userRef = db.collection("users").doc(userId);
+    const postRef = db.collection("posts").doc();
 
     const id = postRef.id;
 
@@ -52,9 +56,11 @@ const postHandler = async (request, h) => {
       title,
       image: imageUrl,
       description,
+      type,
       status,
       created_at: createdAt,
       updated_at: updatedAt,
+      user_id: userId,
     });
 
     return h.response({ success: true, id }).code(201);
