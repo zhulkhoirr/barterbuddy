@@ -104,6 +104,7 @@ const routes = [
     path: "/{userId}/search_history/{entryId}",
     handler: deleteSearchHistoryHandler,
   },
+  
 ];
 
 module.exports = routes;
