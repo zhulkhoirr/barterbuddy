@@ -1,25 +1,25 @@
 const admin = require("../firebase");
 const stream = require("stream");
+const moment = require("moment");
 
 const editPostHandler = async (request, h) => {
   const { userId, postId } = request.params;
-  const { title, description, status } = request.payload;
-
+  const { title, description, status, type } = request.payload;
   const imageFile = request.payload.image;
 
   try {
     const db = admin.firestore();
-    const postRef = db
-      .collection("users")
-      .doc(userId)
+    const postsQuerySnapshot = await db
       .collection("posts")
-      .doc(postId);
+      .where("user_id", "==", userId)
+      .where("__name__", "==", postId)
+      .get();
 
-    const postDoc = await postRef.get();
-    if (!postDoc.exists) {
+    if (postsQuerySnapshot.empty) {
       return h.response({ error: "Post not found" }).code(404);
     }
 
+    const postDoc = postsQuerySnapshot.docs[0];
     const postData = postDoc.data();
     let imageUrl = postData.image;
 
@@ -63,11 +63,14 @@ const editPostHandler = async (request, h) => {
 
       imageUrl = `https://storage.googleapis.com/${bucket.name}/${newFileName}`;
     }
-    let updatedAt = new Date().toISOString();
-    await postRef.update({
+
+    let now = moment();
+    let updatedAt = now.format();
+    await postDoc.ref.update({
       title,
       image: imageUrl,
       description,
+      type,
       status,
       updated_at: updatedAt,
     });

@@ -1,10 +1,10 @@
 const admin = require("../firebase");
 const stream = require("stream");
+const moment = require("moment");
 
 const postHandler = async (request, h) => {
   const userId = request.params.userId;
-  const { title, description, status, created_at, updated_at } =
-    request.payload;
+  const { title, description, type, status } = request.payload;
 
   const imageFile = request.payload.image;
 
@@ -14,8 +14,8 @@ const postHandler = async (request, h) => {
 
   try {
     const db = admin.firestore();
-    const userRef = db.collection("users").doc(userId);
-    const postRef = userRef.collection("posts").doc();
+    // const userRef = db.collection("users").doc(userId);
+    const postRef = db.collection("posts").doc();
 
     const id = postRef.id;
 
@@ -43,16 +43,20 @@ const postHandler = async (request, h) => {
 
     const imageUrl = `https://storage.googleapis.com/${bucket.name}/${fileName}`;
 
-    let createdAt = new Date().toISOString();
-    let updatedAt = new Date().toISOString();
+    let now = moment();
+    let createdAt = now.format();
+    let updatedAt = now.format();
+
     await postRef.set({
       id,
       title,
       image: imageUrl,
       description,
+      type,
       status,
       created_at: createdAt,
       updated_at: updatedAt,
+      user_id: userId,
     });
 
     return h.response({ success: true, id }).code(201);
