@@ -3,23 +3,18 @@ const stream = require("stream");
 const moment = require('moment');
 
 const editPostHandler = async (request, h) => {
-  const { userId, postId } = request.params;
+  const { postId, userId } = request.params;
   const { title, description, status, type } = request.payload;
   const imageFile = request.payload.image;
 
   try {
     const db = admin.firestore();
-    const postsQuerySnapshot = await db
-      .collection("posts")
-      .where("user_id", "==", userId)
-      .where("__name__", "==", postId)
-      .get();
+    const postDoc = await db.collection('posts').doc(postId).get();
 
-    if (postsQuerySnapshot.empty) {
+    if (!postDoc.exists) {
       return h.response({ error: "Post not found" }).code(404);
     }
 
-    const postDoc = postsQuerySnapshot.docs[0];
     const postData = postDoc.data();
     let imageUrl = postData.image;
 
@@ -65,7 +60,7 @@ const editPostHandler = async (request, h) => {
     }
     let now = moment();
     let updatedAt = now.format();
-    await postRef.update({
+    await postDoc.ref.update({
       title,
       image: imageUrl,
       description,

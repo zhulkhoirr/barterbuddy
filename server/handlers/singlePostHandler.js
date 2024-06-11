@@ -1,68 +1,21 @@
 const admin = require("../firebase");
-const stream = require("stream");
-const moment = require("moment");
 
-const postHandler = async (request, h) => {
-  const userId = request.params.userId;
-  const { title, description, type, status } = request.payload;
-
-  const imageFile = request.payload.image;
-
-  if (!imageFile) {
-    return h.response({ error: "Image file is required" }).code(400);
-  }
-
+const singlePostHandler = async (request, h) => {
+  const postId = request.params.postId;
   try {
     const db = admin.firestore();
-    // const userRef = db.collection("users").doc(userId);
-    const postRef = db.collection("posts").doc();
+    const postDoc = await db.collection('posts').doc(postId).get();
 
-    const id = postRef.id;
+    if (!postDoc.exists) {
+        return h.response({ error: 'User not found' }).code(404);
+    }
 
-    const bucket = admin.storage().bucket();
-    const fileName = `${userId}/posts/${id}-${Date.now()}-${
-      imageFile.hapi.filename
-    }`;
-    const file = bucket.file(fileName);
+    const postData = postDoc.data();
 
-    const passthroughStream = new stream.PassThrough();
-    passthroughStream.end(imageFile._data);
-
-    await new Promise((resolve, reject) => {
-      passthroughStream
-        .pipe(
-          file.createWriteStream({
-            metadata: {
-              contentType: imageFile.hapi.headers["content-type"],
-            },
-          })
-        )
-        .on("error", reject)
-        .on("finish", resolve);
-    });
-
-    const imageUrl = `https://storage.googleapis.com/${bucket.name}/${fileName}`;
-
-    let now = moment();
-    let createdAt = now.format();
-    let updatedAt = now.format();
-
-    await postRef.set({
-      id,
-      title,
-      image: imageUrl,
-      description,
-      type,
-      status,
-      created_at: createdAt,
-      updated_at: updatedAt,
-      user_id: userId,
-    });
-
-    return h.response({ success: true, id }).code(201);
-  } catch (error) {
+    return h.response({ ...postData }).code(200);
+} catch (error) {
     return h.response({ error: error.message }).code(500);
-  }
+}
 };
 
-module.exports = postHandler;
+module.exports = singlePostHandler;

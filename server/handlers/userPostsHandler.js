@@ -6,7 +6,7 @@ const userPostsHandler = async (request, h) => {
   try {
     const db = admin.firestore();
     const postsRef = db.collection("posts");
-    const postsSnapshot = await postsRef.where("user_id", "==", userId).get();
+    const postsSnapshot = await postsRef.where("userId", "==", userId).get();
 
     if (postsSnapshot.empty) {
       return h.response({ success: true, posts: [] }).code(200);

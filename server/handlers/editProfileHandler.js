@@ -22,7 +22,6 @@ const editProfileHandler = async (request, h) => {
     if (profile_img) {
       const bucket = admin.storage().bucket();
 
-      // Delete old profile image if it exists
       if (profileImageUrl) {
         const oldImageFileName = profileImageUrl.split("/").pop();
         const oldFile = bucket.file(`${userId}/profile/${oldImageFileName}`);
@@ -36,7 +35,6 @@ const editProfileHandler = async (request, h) => {
         }
       }
 
-      // Upload new profile image
       const newFileName = `${userId}/profile/${Date.now()}-${
         profile_img.hapi.filename
       }`;

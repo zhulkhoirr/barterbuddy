@@ -8,8 +8,7 @@ const allPostsHandler = async (request, h) => {
     const posts = [];
     postsSnapshot.forEach((doc) => {
       const postData = doc.data();
-      const userId = postData.user_id;
-      posts.push({ userId, ...postData });
+      posts.push({ ...postData });
     });
 
     return h.response({ posts }).code(200);
