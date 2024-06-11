@@ -11,6 +11,8 @@ const searchHistoryHandler = require("./handlers/searchHistoryHandler");
 const deleteSearchHistoryHandler = require("./handlers/deleteSearchHistoryHandler");
 const editPostHandler = require("./handlers/editPostHandler");
 const editProfileHandler = require("./handlers/editProfileHandler");
+const interestPostHandler = require("./handlers/interestPostHandler");
+const removeInterestPostHandler = require("./handlers/removeInterestPostHandler");
 
 const routes = [
   {
@@ -90,6 +92,16 @@ const routes = [
     handler: singlePostHandler,
   },
   {
+    method: "POST",
+    path: "/{userId}/post/{postId}/interest",
+    handler: interestPostHandler,
+  },
+  {
+    method: "POST",
+    path: "/{userId}/post/{postId}/uninterest",
+    handler: removeInterestPostHandler,
+  },
+  {
     method: "GET",
     path: "/{userId}/search",
     handler: searchHandler,
@@ -104,7 +116,6 @@ const routes = [
     path: "/{userId}/search_history/{entryId}",
     handler: deleteSearchHistoryHandler,
   },
-  
 ];
 
 module.exports = routes;
