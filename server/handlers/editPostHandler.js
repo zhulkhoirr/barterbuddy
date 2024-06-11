@@ -1,6 +1,6 @@
 const admin = require("../firebase");
 const stream = require("stream");
-const moment = require('moment');
+const moment = require("moment");
 
 const editPostHandler = async (request, h) => {
   const { userId, postId } = request.params;
@@ -63,9 +63,10 @@ const editPostHandler = async (request, h) => {
 
       imageUrl = `https://storage.googleapis.com/${bucket.name}/${newFileName}`;
     }
+
     let now = moment();
     let updatedAt = now.format();
-    await postRef.update({
+    await postDoc.ref.update({
       title,
       image: imageUrl,
       description,
