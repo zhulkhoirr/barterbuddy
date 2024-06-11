@@ -53,6 +53,7 @@ const postHandler = async (request, h) => {
       description,
       type,
       status,
+      interest_count: 0,
       created_at: createdAt,
       updated_at: updatedAt,
       userId: userId,
