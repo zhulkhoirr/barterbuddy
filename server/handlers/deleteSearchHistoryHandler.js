@@ -1,18 +1,28 @@
-const admin = require('firebase-admin');
+const admin = require("firebase-admin");
 
 const deleteSearchHistoryHandler = async (request, h) => {
-    const { userId, entryId } = request.params;
+  const { userId, index: entryIndex } = request.params;
 
-    try {
-      const db = admin.firestore();
-      const searchHistoryRef = db.collection('users').doc(userId).collection('search_history').doc(entryId);
+  try {
+    const db = admin.firestore();
+    const userRef = db.collection("users").doc(userId);
 
-      await searchHistoryRef.delete();
+    const userDoc = await userRef.get();
 
-      return h.response({ success: true }).code(200);
-    } catch (error) {
-      return h.response({ error: error.message }).code(500);
+    if (!userDoc.exists) {
+      return h.response({ error: "User not found" }).code(404);
     }
+
+    let searchHistories = userDoc.data().search_histories || [];
+
+    searchHistories.splice(entryIndex, 1);
+
+    await userRef.update({ search_histories: searchHistories });
+
+    return h.response({ success: true }).code(200);
+  } catch (error) {
+    return h.response({ error: error.message }).code(500);
+  }
 };
 
 module.exports = deleteSearchHistoryHandler;
