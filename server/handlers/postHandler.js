@@ -1,6 +1,6 @@
 const admin = require("../firebase");
 const stream = require("stream");
-const moment = require('moment');
+const moment = require("moment");
 
 const postHandler = async (request, h) => {
   const userId = request.params.userId;
@@ -45,7 +45,7 @@ const postHandler = async (request, h) => {
     let now = moment();
     let createdAt = now.format();
     let updatedAt = now.format();
-    
+
     await postRef.set({
       id,
       title,
