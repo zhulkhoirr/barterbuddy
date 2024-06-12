@@ -10,9 +10,7 @@ const searchHandler = async (request, h) => {
 
     const userRef = db.collection("users").doc(userId);
     await userRef.update({
-      search_histories: admin.firestore.FieldValue.arrayUnion({
-        keyword: keyword,
-      }),
+      search_histories: admin.firestore.FieldValue.arrayUnion(keyword),
     });
 
     const postsQuerySnapshot = await db.collectionGroup("posts").get();

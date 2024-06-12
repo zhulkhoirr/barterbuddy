@@ -13,7 +13,6 @@ const editPostHandler = require("./handlers/editPostHandler");
 const editProfileHandler = require("./handlers/editProfileHandler");
 const interestPostHandler = require("./handlers/interestPostHandler");
 const removeInterestPostHandler = require("./handlers/removeInterestPostHandler");
-
 const routes = [
   {
     method: "POST",
