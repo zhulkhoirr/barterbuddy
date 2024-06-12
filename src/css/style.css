@@ -5,6 +5,9 @@
 /* The following line is used to measure usage of this code. You can remove it if you want. */
 @import url("https://px.animaapp.com/665fde7b3c2ff4e350453f9e.665fde7c3c2ff4e350453fa1.KytfIoy.hch.png");
 
+nav {
+  background-color: #00000065;
+}
 .screen textarea:focus,
 .screen input:focus {
   outline: none;
@@ -255,14 +258,16 @@ input:focus {
   font-style: normal;
   font-weight: 400;
 }
+
 /* screen - homepage */
+
 .homepage {
   background-color: var(--white);
-  /* height: 4805px; */
+  height: 4805px;
   overflow: hidden;
   overflow-x: hidden;
   position: relative;
-  /* width: 1289px; */
+  width: 1289px;
 }
 
 .homepage .ellipse-25-zYNucu {
