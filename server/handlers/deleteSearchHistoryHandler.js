@@ -1,4 +1,4 @@
-const admin = require("firebase-admin");
+const admin = require("../firebase");
 
 const deleteSearchHistoryHandler = async (request, h) => {
   const { userId, index: entryIndex } = request.params;

@@ -1,4 +1,4 @@
-const admin = require("firebase-admin");
+const admin = require("../firebase");
 
 const registerHandler = async (request, h) => {
   const { username, email, password, confirmPassword, city } = request.payload;

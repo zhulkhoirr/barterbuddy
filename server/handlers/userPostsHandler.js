@@ -1,4 +1,4 @@
-admin = require("firebase-admin");
+const admin = require("../firebase");
 
 const userPostsHandler = async (request, h) => {
   const userId = request.params.userId;

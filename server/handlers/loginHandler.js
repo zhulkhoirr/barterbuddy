@@ -1,5 +1,5 @@
 require('dotenv').config();
-const admin = require('firebase-admin');
+const admin = require("../firebase");
 
 const loginHandler = async (request, h) => {
   const { idToken } = request.payload;

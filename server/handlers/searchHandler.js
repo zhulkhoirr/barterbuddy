@@ -1,4 +1,4 @@
-const admin = require("firebase-admin");
+const admin = require("../firebase");
 
 const searchHandler = async (request, h) => {
   let { keyword } = request.query;
@@ -19,7 +19,8 @@ const searchHandler = async (request, h) => {
     postsQuerySnapshot.forEach((doc) => {
       const postData = doc.data();
       const title = postData.title.toLowerCase();
-      if (title.includes(keyword)) {
+      const desc = postData.description.toLowerCase();
+      if (title.includes(keyword) || desc.includes(keyword)) {
         posts.push({
           // userId: doc.ref.parent.parent.id,
           // postId: doc.id,

@@ -2,4 +2,4 @@
 /server/serviceAccountKey.json
 package-lock.json
 .env
-/server/handler/getAllUsers.js
+/server/handlers/getAllUsers.js
