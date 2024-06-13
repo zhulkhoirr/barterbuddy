@@ -7,9 +7,9 @@ from tensorflow.keras.models import load_model
 
 app = Flask(__name__)
 
-posts_df = pd.read_csv('Datasets/csv/posts.csv')
-users_df = pd.read_csv('Datasets/csv/users.csv')
-interests_df = pd.read_csv('Datasets/csv/interests.csv')
+posts_df = pd.read_csv('datasets/csv/posts.csv')
+users_df = pd.read_csv('datasets/csv/users.csv')
+interests_df = pd.read_csv('datasets/csv/interests.csv')
 
 merged_df = interests_df.merge(posts_df, left_on='post_id', right_on='id', suffixes=('_interest', '_post'))
 merged_df = merged_df.merge(users_df, left_on='user_id_interest', right_on='id', suffixes=('_post', '_user'))
