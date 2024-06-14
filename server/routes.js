@@ -72,7 +72,7 @@ const routes = [
   },
   {
     method: "DELETE",
-    path: "/{userId}/post/{postId}",
+    path: "/{userId}/delete/{postId}",
     handler: deletePostHandler,
   },
   {
