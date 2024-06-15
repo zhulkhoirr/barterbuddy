@@ -13,6 +13,8 @@ const editPostHandler = require("./handlers/editPostHandler");
 const editProfileHandler = require("./handlers/editProfileHandler");
 const interestPostHandler = require("./handlers/interestPostHandler");
 const removeInterestPostHandler = require("./handlers/removeInterestPostHandler");
+const postsPageHandler = require("./handlers/postsPageHandler");
+
 const routes = [
   {
     method: "POST",
@@ -84,6 +86,11 @@ const routes = [
     method: "GET",
     path: "/posts",
     handler: allPostsHandler,
+  },
+  {
+    method: "GET",
+    path: "/page/posts",
+    handler: postsPageHandler,
   },
   {
     method: "GET",
