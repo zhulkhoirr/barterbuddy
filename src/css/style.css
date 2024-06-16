@@ -67,7 +67,6 @@ h1 span {
 .container-3,
 .container-4 {
   background-color: #ffffff;
-  border: solid #eaf2ff;
   border-radius: 30px;
   padding: 20px;
 }
@@ -83,11 +82,7 @@ h1 span {
   margin-top: 300px;
   width: 300px;
 }
-.container-work{
-  background-image: url('../img/bg.png');
-  width: 100%;
-  background-size: cover;
-  text-align: center;
-  background-position: center;
-  height: 900px;
+.work {
+  background: linear-gradient(to bottom, #ffffff, #a1afe1, #ffffff);
+  padding: 30px;
 }
