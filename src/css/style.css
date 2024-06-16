@@ -1,18 +1,19 @@
 body {
   height: 100000px;
   font-family: Aleo;
+  margin: 0;
 }
 nav {
-  font-family: Poppins;
-  background-color: #00000065;
+  font-family: Aleo;
+  background-color: #EAF2FF;
 }
 .jumbotron h1 {
   font-family: Aleo;
-  font-size: 80px;
+  font-size: 60px;
 }
 
 .jumbotron {
-  margin-top: 8%;
+  margin-top: 5%;
 }
 
 .image1 {
@@ -81,4 +82,12 @@ h1 span {
   margin-left: -150px;
   margin-top: 300px;
   width: 300px;
+}
+.container-work{
+  background-image: url('../img/bg.png');
+  width: 100%;
+  background-size: cover;
+  text-align: center;
+  background-position: center;
+  height: 900px;
 }
