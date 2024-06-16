@@ -1,5 +1,5 @@
 body {
-  height: 100000px;
+  /* height: 100000px; */
   font-family: Aleo;
   margin: 0;
 }
@@ -85,4 +85,60 @@ h1 span {
 .work {
   background: linear-gradient(to bottom, #ffffff, #a1afe1, #ffffff);
   padding: 30px;
+}
+
+.frame {
+  background-image: url(https://cdn.animaapp.com/projects/665fdf8542908ad859c2cfcc/releases/6665eadb624a745ddc093ee5/img/vector-4.svg);
+  height: 1310px;
+  /* width: 1000px; */
+  margin-left: 120px;
+  margin-right: 120px;
+}
+.poin {
+  width: 40px;
+  height: 40px;
+}
+
+.easy .image {
+  background: #ffffff;
+  max-width: 550px;
+  height: auto;
+  margin-top: -130px;
+}
+.chat .image {
+  background: #ffffff;
+  max-width: 480px;
+  height: auto;
+  margin-top: -150px;
+}
+
+.me-auto {
+  margin-left: auto !important;
+}
+
+.content-easy {
+  margin-left: 45px;
+  width: 24%;
+}
+.content-personal {
+  margin-left: 148px;
+  margin-top: 70px;
+  width: 24%;
+}
+
+.personal .image {
+  max-width: 600px;
+  height: auto;
+  margin-top: -120px;
+  /* background: #ffffff; */
+}
+.text-feature {
+  margin-bottom: 160px;
+}
+
+.personal {
+  margin-top: 100px;
+}
+.chat {
+  margin-top: 180px;
 }
