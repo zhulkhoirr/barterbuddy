@@ -66,7 +66,6 @@ h1 span {
 .container-3,
 .container-4 {
   background-color: #ffffff;
-  border: solid #eaf2ff;
   border-radius: 30px;
   padding: 20px;
 }
@@ -81,4 +80,8 @@ h1 span {
   margin-left: -150px;
   margin-top: 300px;
   width: 300px;
+}
+.work {
+  background: linear-gradient(to bottom, #ffffff, #a1afe1, #ffffff);
+  padding: 30px;
 }
