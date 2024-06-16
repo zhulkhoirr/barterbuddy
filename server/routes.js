@@ -14,6 +14,8 @@ const editProfileHandler = require("./handlers/editProfileHandler");
 const interestPostHandler = require("./handlers/interestPostHandler");
 const removeInterestPostHandler = require("./handlers/removeInterestPostHandler");
 const postsPageHandler = require("./handlers/postsPageHandler");
+const sendMessageHandler = require("./handlers/sendMessageHandler");
+const getChatHistoryHandler = require("./handlers/getChatHistoryHandler");
 
 const routes = [
   {
@@ -121,6 +123,16 @@ const routes = [
     method: "DELETE",
     path: "/{userId}/search_history/{entryId}",
     handler: deleteSearchHistoryHandler,
+  },
+  {
+    method: "POST",
+    path: "/send_message",
+    handler: sendMessageHandler,
+  },
+  {
+    method: "GET",
+    path: "/chat_history",
+    handler: getChatHistoryHandler,
   },
 ];
 
