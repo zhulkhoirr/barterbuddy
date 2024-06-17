@@ -25,9 +25,9 @@ feature_vector = TfidfVectorizer(analyzer='word', stop_words='english').fit_tran
 # Menghitung kesamaan kosinus antara vektor
 similarity = cosine_similarity(feature_vector)
 
-# Endpoint untuk merekomendasikan barang
-@app.route('/recommend', methods=['POST'])
-def recommend():
+# Endpoint untuk mencari barang
+@app.route('/search', methods=['POST'])
+def search():
     data = request.get_json()
     if not data or 'nama_barang' not in data:
         return jsonify({'error': 'nama_barang is required'}), 400
@@ -49,17 +49,17 @@ def recommend():
         similarity_score = list(enumerate(similarity[post_index]))
         sorted_similar_posts = sorted(similarity_score, key=lambda x: x[1], reverse=True)
 
-        recommendations = []
+        search_results = []
         i = 1
         for post in sorted_similar_posts:
             index = post[0]
             title = posts_df.iloc[index]['title']
             description = posts_df.iloc[index]['description']
             if i <= 10:
-                recommendations.append({'title': title, 'description': description})
+                search_results.append({'title': title, 'description': description})
                 i += 1
 
-        return jsonify({'recommended_posts': recommendations})
+        return jsonify({'search_results': search_results})
 
 if __name__ == '__main__':
     app.run(debug=True)
