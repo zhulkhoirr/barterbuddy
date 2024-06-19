@@ -19,7 +19,7 @@ BarterBuddy adalah aplikasi mobile untuk pertukaran barang dan jasa yang dikemba
     * Kotlin
     
 * **Backend:**
-    * 
+    * Node.js
 * **Database:**
     * MySQL
 * **Cloud Hosting:**
