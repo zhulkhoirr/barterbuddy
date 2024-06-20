@@ -22,12 +22,15 @@ BarterBuddy adalah aplikasi mobile untuk pertukaran barang dan jasa yang dikemba
     * Node.js
 * **Database:**
     * MySQL
+    * Firestore
 * **Cloud Hosting:**
-    * (Pilih penyedia cloud pilihan Anda, misal: AWS, Google Cloud, Azure)
+    * Google Cloud
+      * Cloud Run
+      * App Engine
 * **Authentication:**
     * Firebase Authentication
 * **Image Storage:**
-    * Firebase Storage
+    * Cloud Storage
 
 ## Cara Menjalankan Aplikasi (Development) 💻
 
