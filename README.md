@@ -31,3 +31,13 @@ BarterBuddy adalah aplikasi mobile untuk pertukaran barang dan jasa yang dikemba
 
 ## Cara Menjalankan Aplikasi (Development) 💻
 
+## Our Team 👋
+| Name | Bangkit ID | Learning Path |
+|----------|----------|----------|
+| Bulqis Ramadani | C208D4KX0999 | Cloud Computing |
+| Syifa Ur Rahmi | C208D4KX0417 | Cloud Computing |
+| Jundi Jauhari Habib | M006D4KY1569 | Machine Learning |
+| Syamilah Hanifah Yusro | M2834KX2945 | Machine Learning |
+| Zhulkhoir Rifat Rianda Raja Faqih | M133D4KY3272 | Machine Learning |
+| Ferdi Hasan | A546D4NY4636 | Mobile Development |
+| Labib Ikhsan Putrantino | A013D4KY4390 | Mobile Development |
