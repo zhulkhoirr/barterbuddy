@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "441710741278",
+    "project_id": "barterbuddy",
+    "storage_bucket": "barterbuddy.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:441710741278:android:a599757d2c4d922d61ab0f",
+        "android_client_info": {
+          "package_name": "com.app.barterbuddy"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBn3uL48rfkv_o6uKvX4Dwu0v5QnAfQfwc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:441710741278:android:6807af03978d4fb061ab0f",
+        "android_client_info": {
+          "package_name": "com.barterbuddy"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBn3uL48rfkv_o6uKvX4Dwu0v5QnAfQfwc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:441710741278:android:af68c886ec496cc561ab0f",
+        "android_client_info": {
+          "package_name": "com.storyappsub2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBn3uL48rfkv_o6uKvX4Dwu0v5QnAfQfwc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

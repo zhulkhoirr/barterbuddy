@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">BarterBuddy</string>
+    <string name="title_activity_sign_up">SignUpActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="explore">Explore</string>
+    <string name="add">Add</string>
+    <string name="chat">Chat</string>
+    <string name="profile">Profile</string>
+    <string name="text">The perfect T-shirt for when you want to feel comfortable but still stylish. Amazing for all ocasions.
+Made of 100% cotton fabric in four colours. Its modern style gives a lighter look to the outfit. Perfect for the warmest days.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

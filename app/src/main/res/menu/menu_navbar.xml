@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/explore"
+        android:title="@string/explore"
+        android:icon="@drawable/explore_select" />
+
+    <item
+        android:id="@+id/add"
+        android:title="@string/add"
+        android:icon="@drawable/add_select" />
+
+    <item
+        android:id="@+id/chat"
+        android:title="@string/chat"
+        android:icon="@drawable/chat_select" />
+
+    <item
+        android:id="@+id/profile"
+        android:title="@string/profile"
+        android:icon="@drawable/person_select" />
+
+</menu>
