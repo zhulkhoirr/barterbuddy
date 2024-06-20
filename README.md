@@ -9,9 +9,8 @@ BarterBuddy adalah aplikasi mobile untuk pertukaran barang dan jasa yang dikemba
 * **Profil Pengguna:** Buat profil pribadi untuk menampilkan barang dan jasa yang ingin ditukar.
 * **Pencarian:** Temukan barang atau jasa yang diinginkan dengan mudah melalui fitur pencarian.
 * **Penawaran dan Negosiasi:** Ajukan penawaran untuk barang atau jasa yang menarik dan bernegosiasi dengan pengguna lain.
-* **Sistem Rating dan Ulasan:** Berikan rating dan ulasan kepada pengguna lain setelah transaksi selesai.
+* **Interesting:** Masukkan postingan yang kamu suka ke dalam list interest.
 * **Chat:** Komunikasi langsung dengan pengguna lain untuk mendiskusikan detail pertukaran.
-* **Notifikasi:** Dapatkan pemberitahuan tentang penawaran baru, pesan, dan aktivitas lainnya.
 
 ## Teknologi yang Digunakan 🛠️
 
