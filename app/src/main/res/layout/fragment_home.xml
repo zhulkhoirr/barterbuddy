@@ -26,11 +26,13 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
                 android:layout_weight="1"
+                app:queryBackground="@android:color/transparent"
+                android:background="@drawable/background_search"
                 app:iconifiedByDefault="false"
-                style="@style/Widget.Material3.SearchBar"
                 android:queryHint="Search here..." />
 
             <ImageView
+                android:id="@+id/notif"
                 android:layout_width="35dp"
                 android:layout_height="50dp"
                 android:layout_marginEnd="15dp"

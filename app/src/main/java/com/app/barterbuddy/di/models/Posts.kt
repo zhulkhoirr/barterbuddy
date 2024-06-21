@@ -14,7 +14,6 @@ data class SuccessPost(
 
 	@field:SerializedName("success")
 	val success: Boolean,
-
 	@field:SerializedName("id")
 	val id: String
 )

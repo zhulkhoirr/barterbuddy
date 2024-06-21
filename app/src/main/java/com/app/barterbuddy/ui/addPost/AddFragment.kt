@@ -67,6 +67,7 @@ class AddFragment : Fragment() {
                     dataType.isEmpty() -> messageToast("Tipe masih kosong")
                     dataStatus.isEmpty() -> messageToast("Status masih kosng")
                     file == null -> messageToast("Gambar Masih kosong")
+                    file!!.length() > 1_048_576 -> messageToast("Ukuran gambar tidak boleh lebih dari 1 MB")
 
                     else -> {
                         val poto = file!!.asRequestBody("image/jpeg".toMediaTypeOrNull())
