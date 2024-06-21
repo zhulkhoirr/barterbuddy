@@ -1,4 +1,4 @@
-package com.app.barterbuddy.ui.home
+package com.app.barterbuddy.ui.detailPost
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
@@ -9,14 +9,10 @@ import com.app.barterbuddy.di.models.PostsItem
 import com.app.barterbuddy.di.models.SuccessPost
 import com.app.barterbuddy.di.models.Users
 
-class HomeViewModel(private val repo: BarterRepository): ViewModel() {
+class DetailPostViewModel(private val repo: BarterRepository): ViewModel() {
 
-    suspend fun getPost(): LiveData<List<PostsItem>> {
-        return repo.getPost().asFlow().asLiveData()
-    }
-
-    suspend fun getSearchPost(userId: String, keyword: String): LiveData<List<PostsItem>> {
-        return repo.getPostSearch(userId, keyword).asFlow().asLiveData()
+    suspend fun getDetailPost(postId: String): LiveData<PostsItem> {
+        return repo.getDetailPost(postId).asFlow().asLiveData()
     }
 
     suspend fun getDetailUser(userId: String): LiveData<Users> {
@@ -30,4 +26,5 @@ class HomeViewModel(private val repo: BarterRepository): ViewModel() {
     suspend fun postUninterest(userId: String, postId: String): LiveData<SuccessPost> {
         return repo.postUninterest(userId, postId).asFlow().asLiveData()
     }
+
 }

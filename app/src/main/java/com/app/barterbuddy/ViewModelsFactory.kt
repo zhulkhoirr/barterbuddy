@@ -6,6 +6,7 @@ import com.app.barterbuddy.di.BarterRepository
 import com.app.barterbuddy.di.Injection
 import com.app.barterbuddy.ui.addPost.AddViewModel
 import com.app.barterbuddy.ui.chat.ChatViewModel
+import com.app.barterbuddy.ui.detailPost.DetailPostViewModel
 import com.app.barterbuddy.ui.home.HomeViewModel
 import com.app.barterbuddy.ui.login.LoginViewModel
 import com.app.barterbuddy.ui.profile.ProfileViewModel
@@ -33,6 +34,9 @@ class ViewModelsFactory(private val repo: BarterRepository): ViewModelProvider.N
             }
             modelClass.isAssignableFrom(ProfileViewModel::class.java) -> {
                 ProfileViewModel(repo) as T
+            }
+            modelClass.isAssignableFrom(DetailPostViewModel::class.java) -> {
+                DetailPostViewModel(repo) as T
             }
             else -> throw IllegalArgumentException("Unknown ViewModel Class: " + modelClass.name)
         }
